@@ -36,7 +36,7 @@ export default function Hero() {
 
         <h1
           className="font-black leading-[0.92] tracking-[-0.03em] text-white w-full text-center"
-          style={{ fontSize: 'clamp(3.5rem, 11vw, 11rem)' }}
+          style={{ fontSize: 'clamp(2.8rem, 9vw, 10rem)' }}
         >
           Howdy,
           <span
@@ -57,17 +57,11 @@ export default function Hero() {
           Specialty coffee. Breakfast tacos. Good things, Texas-made.
         </p>
 
-        <div className="flex gap-4 mt-12 justify-center flex-wrap">
-          <a
-            href="#menu"
-            className="text-[0.72rem] font-bold tracking-[0.1em] uppercase text-white bg-[#FF1616] px-8 py-4 rounded-full hover:bg-red-700 transition-all hover:-translate-y-1 flex items-center gap-2 shadow-lg"
-          >
+        <div className="flex gap-5 mt-14 justify-center flex-wrap">
+          <a href="#menu" className="text-[0.75rem] font-bold tracking-[0.12em] uppercase text-white bg-[#FF1616] px-10 py-4 rounded-full hover:bg-red-700 transition-all hover:-translate-y-1 shadow-xl">
             See the Menu →
           </a>
-          <a
-            href="#visit"
-            className="text-[0.72rem] font-bold tracking-[0.1em] uppercase text-white border-2 border-white/40 px-8 py-4 rounded-full hover:border-white transition-all hover:-translate-y-1"
-          >
+          <a href="#visit" className="text-[0.75rem] font-bold tracking-[0.12em] uppercase text-white border-2 border-white/50 px-10 py-4 rounded-full hover:border-white hover:bg-white/10 transition-all hover:-translate-y-1">
             Find Us
           </a>
         </div>
