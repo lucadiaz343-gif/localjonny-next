@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --ring: transparent;
+  --border: transparent;
+}
+
+/* Remove all default borders from shadcn */
+body > *:first-child {
+  border-top: none !important;
+}

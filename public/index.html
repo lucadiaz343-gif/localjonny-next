@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local Jonny's — Coffee Bar & General Store · Dallas, TX</title>
+  <link rel="icon" type="image/png" href="logo/logo.png" />
+  <link rel="apple-touch-icon" href="logo/logo.png" />
+  <meta name="description" content="Local Jonny's — Coffee bar and general store in North Dallas. Specialty coffee by Monomyth, breakfast tacos, craft beer, wine and Texas-made gifts. 5471 Belt Line Rd, Dallas TX." />
+  <meta name="keywords" content="coffee dallas, specialty coffee north dallas, breakfast tacos dallas, matcha dallas, local jonnys" />
+  <meta property="og:title" content="Local Jonny's — Coffee Bar & General Store · Dallas, TX" />
+  <meta property="og:description" content="Specialty coffee, breakfast tacos, craft beer and Texas-made gifts in North Dallas." />
+  <meta property="og:image" content="fotos/DSC06478.webp" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --red:        #FF1616;
+      --blue-mid:   #719AC8;
+      --blue-dark:  #3C6CA8;
+      --white:      #FFFFFF;
+      --off-white:  #F8F8F8;
+      --dark:       #3C6CA8;
+      --gray:       #666666;
+      --f: 'Poppins', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--dark); font-family: var(--f); font-weight: 300; overflow-x: hidden; }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.6rem 4rem;
+      transition: background .4s, padding .3s, backdrop-filter .4s;
+    }
+    nav.solid {
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(14px);
+      padding: 1rem 4rem;
+      border-bottom: 1px solid rgba(17,17,17,.07);
+    }
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo-img {
+      height: 40px;
+      width: auto;
+      display: block;
+      filter: brightness(0) invert(1);
+    }
+    nav.solid .nav-logo-img {
+      filter: brightness(0) invert(1);
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: .7rem; font-weight: 600; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--white); opacity: .8;
+      position: relative; transition: opacity .2s, color .3s;
+    }
+    nav.solid .nav-links a {
+      color: var(--dark); opacity: .5;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 2px; background: var(--red);
+      transition: width .3s ease;
+    }
+    .nav-links a:hover { opacity: 1; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-order {
+      font-size: .68rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--white);
+      background: var(--red); padding: .65rem 1.6rem;
+      border-radius: 999px;
+      transition: background .2s, transform .2s, letter-spacing .25s;
+    }
+    .nav-order:hover { background: #2a5490; transform: translateY(-2px); letter-spacing: .15em; }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: .4rem;
+    }
+    .nav-burger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform .3s, opacity .3s;
+    }
+    nav.solid .nav-burger span { background: var(--dark); }
+    .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.5);
+      z-index: 150;
+      backdrop-filter: blur(2px);
+    }
+    .nav-overlay.open { display: block; }
+
+    /* ── HERO ── */
+#hero {
+  min-height: 100svh;
+  position: relative;
+  overflow: hidden;
+  background: #000000;
+}
+#hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+  z-index: 0;
+}
+.hero-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 4rem;
+}
+.hero-eyebrow {
+  font-size: .65rem; font-weight: 600; letter-spacing: .28em;
+  text-transform: uppercase; color: rgba(255,255,255,0.7);
+  margin-bottom: 1.8rem;
+  opacity: 0; animation: fadeUp .7s .2s ease forwards;
+}
+.hero-headline {
+  font-size: clamp(2.8rem, 10vw, 12rem);
+  font-weight: 900; line-height: .92;
+  letter-spacing: -.03em; color: var(--white);
+  opacity: 0; animation: fadeUp .9s .3s ease forwards;
+}
+.hero-headline em { font-style: italic; color: var(--red); }
+.hero-sub {
+  font-size: clamp(.95rem, 1.8vw, 1.3rem);
+  font-weight: 300; color: rgba(255,255,255,0.65);
+  margin-top: 1.6rem; max-width: 46ch; line-height: 1.7;
+  opacity: 0; animation: fadeUp .9s .46s ease forwards;
+}
+.hero-ctas {
+  display: flex; gap: 1rem; margin-top: 3rem; justify-content: center;
+  opacity: 0; animation: fadeUp .9s .6s ease forwards;
+}
+    .hero-rotating-wrap {
+      display: block;
+      position: relative;
+      height: 1.1em;
+      overflow: hidden;
+      width: 100%;
+      text-align: center;
+    }
+    .hero-rotating-word {
+      display: block;
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      left: 0;
+      color: var(--red);
+      font-style: italic;
+      opacity: 0;
+      transform: translateY(-100%);
+      transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      white-space: nowrap;
+      font-size: clamp(2.8rem, 10vw, 12rem);
+    }
+    .hero-rotating-word.active {
+      opacity: 1;
+      transform: translateY(0);
+      position: relative;
+    }
+    .hero-rotating-word.exit {
+      opacity: 0;
+      transform: translateY(100%);
+      position: absolute;
+    }
+    /* BUTTONS */
+    .btn-red {
+      font-size: .7rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--white);
+      background: var(--red); padding: .9rem 2.2rem;
+      border-radius: 999px; display: inline-flex; align-items: center; gap: .5rem;
+      transition: background .2s, transform .2s, gap .25s, box-shadow .2s;
+    }
+    .btn-red:hover { background: #cc0000; transform: translateY(-3px); gap: .9rem; box-shadow: 0 8px 24px rgba(255,22,22,.3); }
+    .btn-outline {
+      font-size: .7rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--white);
+      border: 2px solid rgba(255,255,255,.4); padding: .9rem 2.2rem;
+      border-radius: 999px; display: inline-block;
+      transition: border-color .2s, color .2s, transform .2s;
+    }
+    .btn-outline:hover { border-color: var(--blue-dark); color: var(--blue-dark); transform: translateY(-3px); }
+    .btn-white {
+      font-size: .7rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--dark);
+      background: var(--white); padding: .9rem 2.2rem;
+      border-radius: 999px; display: inline-flex; align-items: center; gap: .5rem;
+      align-self: flex-start;
+      transition: background .2s, transform .2s, gap .25s;
+    }
+    .btn-white:hover { background: var(--off-white); transform: translateY(-3px); gap: .9rem; }
+
+
+    /* ── PHOTO STRIP ── */
+#photo-strip {
+  overflow: hidden;
+  position: relative;
+  cursor: grab;
+  user-select: none;
+}
+#photo-strip:active { cursor: grabbing; }
+.strip-track {
+  display: flex;
+  gap: .5rem;
+  height: 440px;
+  width: max-content;
+  transition: transform 0s;
+}
+.strip-cell {
+  overflow: hidden;
+  position: relative;
+  background: #eee;
+  flex-shrink: 0;
+  width: 420px;
+}
+.strip-cell img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .8s cubic-bezier(.23,1,.32,1);
+  pointer-events: none;
+}
+.strip-cell:hover img { transform: scale(1.07); }
+.strip-label {
+  position: absolute; bottom: 1rem; left: 1rem;
+  font-size: .58rem; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: #fff;
+  background: rgba(17,17,17,.5); padding: .3rem .75rem;
+  border-radius: 999px; backdrop-filter: blur(6px);
+}
+@media(max-width:960px){
+  .strip-track { height: 260px; }
+  .strip-cell { width: 75vw; }
+}
+@media(max-width:480px){
+  .strip-track { height: 220px; }
+  .strip-cell { width: 85vw; }
+}
+
+    /* ── TICKER ── */
+    .ticker-wrap { overflow: hidden; background: #3C6CA8; padding: 1rem 0; }
+    .ticker-track { display: flex; white-space: nowrap; animation: ticker 28s linear infinite; }
+    .ticker-track:hover { animation-play-state: paused; }
+    .t-item { font-size: .65rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--white); padding: 0 2.5rem; }
+    .t-dot { color: var(--red); font-size: .45rem; }
+    @keyframes ticker { from{transform:translateX(0);} to{transform:translateX(-50%);} }
+
+    /* ── INFO BAR ── */
+    #infobar { display: grid; grid-template-columns: repeat(3,1fr); border-bottom: 1px solid rgba(17,17,17,.08); }
+    .info-cell { padding: 2.2rem 4rem; border-right: 1px solid rgba(17,17,17,.07); transition: background .2s; }
+    .info-cell:last-child { border-right: none; }
+    .info-cell:hover { background: var(--off-white); }
+    .info-label { font-size: .58rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--blue-dark); margin-bottom: .6rem; }
+    .info-value { font-size: 1rem; font-weight: 600; color: var(--dark); line-height: 1.6; }
+
+    /* ── SECTION UTILS ── */
+    .s-tag { display: block; font-size: .58rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; }
+    .s-title { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 900; line-height: .95; letter-spacing: -.025em; color: var(--dark); }
+    .s-title em { font-style: italic; color: var(--red); }
+    .s-title .blue { color: var(--blue-dark); }
+
+    /* ── ABOUT ── */
+    #about { display: grid; grid-template-columns: 1fr 1fr; min-height: 70vh; }
+    .about-photo { overflow: hidden; }
+    .about-photo img { transition: transform .9s ease; }
+    #about:hover .about-photo img { transform: scale(1.04); }
+    .about-copy { padding: 6rem 4rem; display: flex; flex-direction: column; justify-content: center; background: var(--off-white); }
+    .about-copy p { font-size: .95rem; font-weight: 300; line-height: 1.9; color: #555; margin-top: 1.4rem; max-width: 40ch; }
+    .about-copy p strong { color: var(--dark); font-weight: 600; }
+    .partners { margin-top: 2.5rem; display: flex; flex-direction: column; gap: .75rem; }
+    .partner { font-size: .68rem; font-weight: 600; letter-spacing: .06em; color: var(--gray); display: flex; align-items: center; gap: .8rem; transition: color .2s; }
+    .partner:hover { color: var(--blue-dark); }
+    .partner::before { content: ''; display: inline-block; width: 18px; height: 1.5px; background: currentColor; transition: width .3s; }
+    .partner:hover::before { width: 32px; }
+
+    /* ── MENU ── */
+    #menu { padding: 7rem 4rem 0; }
+    .menu-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 4.5rem; }
+    .menu-header p { font-size: .9rem; font-weight: 300; line-height: 1.85; color: var(--gray); max-width: 38ch; }
+    .menu-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: rgba(17,17,17,.07); }
+    .menu-cat { background: var(--white); padding: 3rem; transition: background .25s; }
+    .menu-cat:hover { background: var(--off-white); }
+    .cat-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1.2rem; border-bottom: 1px solid rgba(17,17,17,.07); }
+    .cat-icon { width: 38px; height: 38px; border-radius: 50%; background: #3C6CA8; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .cat-icon svg { width: 18px; height: 18px; fill: none; stroke: #fff; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .cat-title { font-size: 1.4rem; font-weight: 700; color: var(--dark); }
+    .cat-sub { font-size: .58rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--blue-dark); margin-top: .1rem; }
+    .menu-items { list-style: none; }
+    .menu-row { display: flex; justify-content: space-between; align-items: baseline; padding: .72rem 0; border-bottom: 1px solid rgba(17,17,17,.06); transition: padding-left .25s; }
+    .menu-row:last-child { border-bottom: none; }
+    .menu-row:hover { padding-left: .6rem; }
+    .item-name { font-size: .88rem; font-weight: 400; color: var(--dark); }
+    .item-desc { display: block; font-size: .72rem; font-weight: 300; color: var(--gray); margin-top: .1rem; }
+    .item-price { font-size: .75rem; font-weight: 700; color: var(--red); margin-left: 1.5rem; white-space: nowrap; }
+
+    /* ── MATCHA SECTION ── */
+    #matcha { display: grid; grid-template-columns: 1fr 1fr; min-height: 65vh; }
+    .matcha-photo { overflow: hidden; }
+    .matcha-photo img { transition: transform 1s ease; }
+    #matcha:hover .matcha-photo img { transform: scale(1.04); }
+    .matcha-copy { padding: 5rem 4.5rem; display: flex; flex-direction: column; justify-content: center; gap: 2rem; background: #4A7C4E; }
+    .matcha-copy .s-tag { color: rgba(255,255,255,.55); }
+    .matcha-copy .s-title { color: var(--white); font-size: clamp(3.5rem, 6vw, 7rem); line-height: .9; }
+    .matcha-copy .s-title em { color: rgba(255,255,255,0.7); }
+    .matcha-copy p { font-size: 1.05rem; font-weight: 300; line-height: 2; color: rgba(255,255,255,.68); max-width: 38ch; }
+    .matcha-copy .btn-white { align-self: flex-start; margin-top: .5rem; }
+
+    /* ── REVIEWS ── */
+#reviews { padding: 7rem 4rem; background: var(--white); }
+.reviews-header { margin-bottom: 4rem; }
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.review-card {
+  padding: 2rem;
+  border: 1px solid rgba(17,17,17,.08);
+  border-radius: 12px;
+  background: var(--off-white);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform .25s, box-shadow .25s;
+}
+.review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(60,108,168,.1);
+}
+.review-stars { color: #FFB800; font-size: 1rem; letter-spacing: .1em; }
+.review-text {
+  font-size: .88rem;
+  line-height: 1.75;
+  color: #555;
+  font-style: italic;
+  flex: 1;
+}
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin-top: .5rem;
+}
+.review-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--blue-dark);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .8rem; font-weight: 700;
+  flex-shrink: 0;
+}
+.review-name { font-size: .82rem; font-weight: 600; color: var(--dark); }
+.review-source { font-size: .7rem; color: var(--gray); }
+
+    /* ── GIFTS ── */
+    #gifts { padding: 7rem 4rem; background: var(--off-white); }
+    .gifts-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 4rem; }
+    .gifts-header p { font-size: .9rem; font-weight: 300; line-height: 1.85; color: var(--gray); max-width: 38ch; }
+    .gifts-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .gift-card { padding: 2rem; background: var(--white); border: 1px solid rgba(17,17,17,.08); border-radius: 8px; transition: border-color .25s, transform .25s, box-shadow .25s; }
+    .gift-card:hover { border-color: var(--red); transform: translateY(-5px); box-shadow: 0 14px 32px rgba(255,22,22,.1); }
+    .gift-num { font-size: .58rem; font-weight: 700; letter-spacing: .14em; color: var(--red); margin-bottom: 1rem; }
+    .gift-name { font-size: 1.25rem; font-weight: 700; color: var(--dark); margin-bottom: .5rem; }
+    .gift-desc { font-size: .82rem; font-weight: 300; color: var(--gray); line-height: 1.65; }
+
+    /* ── GALLERY ── */
+#gallery { padding: 7rem 4rem; background: var(--off-white); }
+.gallery-header { margin-bottom: 3rem; }
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  auto-rows: 220px;
+}
+.bento-cell {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border-radius: 4px;
+  background: #ddd;
+}
+.bento-cell.span-2 { grid-column: span 2; }
+.bento-cell img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(.23,1,.32,1);
+}
+.bento-cell:hover img { transform: scale(1.06); }
+.bento-cell .strip-label {
+  position: absolute; bottom: 0.8rem; left: 0.8rem;
+  font-size: .58rem; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: #fff;
+  background: rgba(17,17,17,.5); padding: .3rem .75rem;
+  border-radius: 999px; backdrop-filter: blur(6px);
+}
+/* Modal */
+#gallery-modal {
+  display: none;
+  position: fixed; inset: 0; z-index: 500;
+  background: rgba(0,0,0,0.92);
+  align-items: center; justify-content: center;
+}
+#gallery-modal.open { display: flex; }
+.modal-inner {
+  position: relative;
+  max-width: 90vw; max-height: 90vh;
+}
+#modal-img {
+  max-width: 90vw; max-height: 85vh;
+  object-fit: contain; border-radius: 4px;
+  display: block;
+}
+.modal-close {
+  position: absolute; top: -1.5rem; right: -1.5rem;
+  background: var(--red); color: #fff;
+  border: none; border-radius: 50%;
+  width: 32px; height: 32px;
+  font-size: 0.8rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.2s;
+}
+.modal-close:hover { transform: scale(1.15); }
+@media(max-width:960px){
+  #gallery { padding: 4rem 1.5rem; }
+  .bento-grid { grid-template-columns: repeat(2,1fr); auto-rows: 160px; }
+  .bento-cell.span-2 { grid-column: span 1; }
+}
+
+    /* ── VISIT ── */
+    #visit { display: grid; grid-template-columns: 1fr 1fr; min-height: 50vh; }
+    .visit-map { overflow: hidden; background: #ddd; }
+    .visit-map iframe { width: 100%; height: 100%; border: none; filter: saturate(.3) contrast(1.1); }
+    .visit-copy { padding: 5rem 4rem; background: #3C6CA8; display: flex; flex-direction: column; justify-content: center; }
+    .visit-copy .s-tag { color: var(--blue-mid); }
+    .visit-copy .s-title { color: var(--white); }
+    .visit-details { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
+    .vd-label { font-size: .58rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--blue-mid); margin-bottom: .3rem; }
+    .vd-val { font-size: 1rem; font-weight: 600; color: var(--white); line-height: 1.6; }
+    .vd-val a { color: var(--blue-mid); text-decoration: underline; text-underline-offset: 3px; transition: color .2s; }
+    .vd-val a:hover { color: var(--white); }
+
+    /* ── FOOTER ── */
+    footer { background: #2a5490; border-top: 1px solid rgba(255,255,255,.06); padding: 4rem 4rem 2.5rem; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; }
+    .f-logo { font-size: 2.5rem; font-weight: 900; letter-spacing: -.02em; color: var(--white); line-height: 1; margin-bottom: 1rem; }
+    .f-logo span { color: var(--red); }
+    .f-sub { font-size: .82rem; font-weight: 300; color: rgba(255,255,255,.4); line-height: 1.75; max-width: 27ch; }
+    .f-col-title { font-size: .58rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--blue-mid); margin-bottom: 1.2rem; }
+    .f-col ul { list-style: none; display: flex; flex-direction: column; gap: .65rem; }
+    .f-col ul li, .f-col ul a { font-size: .82rem; font-weight: 300; color: rgba(255,255,255,.5); transition: color .2s; }
+    .f-col ul a:hover { color: var(--white); }
+    .f-bottom { grid-column: 1/-1; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.06); display: flex; justify-content: space-between; align-items: center; }
+    .f-bottom p { font-size: .6rem; font-weight: 300; letter-spacing: .06em; color: rgba(255,255,255,.22); }
+    .f-insta { font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--blue-mid); transition: color .2s; }
+    .f-insta:hover { color: var(--white); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp { from{opacity:0;transform:translateY(22px);} to{opacity:1;transform:translateY(0);} }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:960px){
+  nav { padding: 1.2rem 1.5rem; }
+  nav.solid { padding: .9rem 1.5rem; }
+  .nav-burger { display: flex; }
+  .nav-links {
+    display: flex !important;
+    flex-direction: column;
+    position: fixed;
+    top: 0; right: -100%;
+    width: 75vw; max-width: 300px;
+    height: 100vh;
+    background: var(--dark);
+    z-index: 180;
+    padding: 5rem 2rem 2rem;
+    gap: 0;
+    transition: right .35s cubic-bezier(.23,1,.32,1);
+  }
+  .nav-links.open { right: 0; }
+  .nav-links li { border-bottom: 1px solid rgba(255,255,255,.08); }
+  .nav-links a {
+    display: block;
+    padding: 1rem 0;
+    font-size: .85rem;
+    color: rgba(255,255,255,.8) !important;
+    opacity: 1 !important;
+  }
+  .nav-order { display: none; }
+  .nav-logo-img { height: 36px; }
+  #hero { padding: 0 1.5rem; }
+  .hero-headline { font-size: clamp(3.5rem, 15vw, 6rem); }
+  #infobar { grid-template-columns: 1fr; }
+  .info-cell { border-right: none; border-bottom: 1px solid rgba(17,17,17,.07); padding: 1.5rem; }
+  #about, #matcha, #visit { grid-template-columns: 1fr; }
+  .about-photo, .matcha-photo, .visit-map { height: 55vw; }
+  .about-copy, .matcha-copy, .visit-copy { padding: 3rem 1.5rem; }
+  #menu, #gifts, #gallery, #reviews { padding: 4rem 1.5rem; }
+  .menu-header, .gifts-header { grid-template-columns: 1fr; gap: 1rem; margin-bottom: 2.5rem; }
+  .menu-grid { grid-template-columns: 1fr; }
+  .gifts-grid { grid-template-columns: 1fr 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .bento-grid { grid-template-columns: repeat(2,1fr); auto-rows: 150px; }
+  .bento-cell.span-2 { grid-column: span 1; }
+  footer { grid-template-columns: 1fr; padding: 3rem 1.5rem 2rem; }
+  .hero-rotating-wrap { display: block; height: auto; overflow: visible; }
+}
+
+@media(max-width:480px){
+  .hero-headline { font-size: clamp(3rem, 18vw, 5rem); }
+  .gifts-grid { grid-template-columns: 1fr; }
+  .bento-grid { grid-template-columns: 1fr; auto-rows: 200px; }
+  .bento-cell.span-2 { grid-column: span 1; }
+  .menu-grid { grid-template-columns: 1fr; }
+}
+  </style>
+  <link rel="preload" as="video" href="video.mp4" />
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-logo" href="#">
+    <img src="logo/logo.png" alt="Local Jonny's" class="nav-logo-img" />
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#menu" onclick="closeMenu()">Menu</a></li>
+    <li><a href="#about" onclick="closeMenu()">About</a></li>
+    <li><a href="#gallery" onclick="closeMenu()">Gallery</a></li>
+    <li><a href="#gifts" onclick="closeMenu()">Shop</a></li>
+    <li><a href="#visit" onclick="closeMenu()">Visit</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="nav-order" href="https://order.toasttab.com" target="_blank">Order Online</a>
+    <button class="nav-burger" id="nav-burger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
+
+<section id="hero">
+  <video autoplay muted loop playsinline id="hero-video" preload="auto">
+    <source src="video.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Coffee Bar + General Store &nbsp;&middot;&nbsp; North Dallas, TX</p>
+    <h1 class="hero-headline">
+      Howdy,<br>
+      <span class="hero-rotating-wrap">
+        <span class="hero-rotating-word active">Dallas.</span>
+        <span class="hero-rotating-word">Good coffee.</span>
+        <span class="hero-rotating-word">Real tacos.</span>
+        <span class="hero-rotating-word">Your local.</span>
+      </span>
+    </h1>
+    <p class="hero-sub">Specialty coffee. Breakfast tacos. Good things, Texas-made.</p>
+    <div class="hero-ctas">
+      <a class="btn-red" href="#menu">See the Menu &#8594;</a>
+      <a class="btn-outline" href="#visit">Find Us</a>
+    </div>
+  </div>
+</section>
+
+<div id="photo-strip">
+  <div class="strip-track" id="strip-track">
+    <div class="strip-cell">
+      <img src="fotos/DSC06478.webp" alt="Coffee" loading="lazy"/>
+      <span class="strip-label">Monomyth Coffee</span>
+    </div>
+    <div class="strip-cell">
+      <img src="fotos/DSC06365.webp" alt="Local Jonny's" loading="lazy"/>
+      <span class="strip-label">Local Jonny's</span>
+    </div>
+    <div class="strip-cell">
+      <img src="fotos/DSC06773.webp" alt="Tacos" loading="lazy"/>
+      <span class="strip-label">Breakfast Tacos</span>
+    </div>
+    <div class="strip-cell">
+      <img src="fotos/DSC06494.webp" alt="Matcha" loading="lazy"/>
+      <span class="strip-label">Matcha Bar</span>
+    </div>
+    <div class="strip-cell">
+      <img src="fotos/DSC06341.webp" alt="Interior" loading="lazy"/>
+      <span class="strip-label">The Space</span>
+    </div>
+    <div class="strip-cell">
+      <img src="fotos/DSC06647.webp" alt="Drinks" loading="lazy"/>
+      <span class="strip-label">Good Coffee</span>
+    </div>
+    <div class="strip-cell">
+      <img src="fotos/DSC06526.webp" alt="Matcha 2" loading="lazy"/>
+      <span class="strip-label">Ceremonial Matcha</span>
+    </div>
+    <div class="strip-cell">
+      <img src="fotos/DSC06374.webp" alt="Exterior" loading="lazy"/>
+      <span class="strip-label">North Dallas</span>
+    </div>
+  </div>
+</div>
+
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span class="t-item">Specialty Coffee</span><span class="t-dot">&#9670;</span>
+    <span class="t-item">Breakfast Tacos</span><span class="t-dot">&#9670;</span>
+    <span class="t-item">Matcha Bar</span><span class="t-dot">&#9670;</span>
+    <span class="t-item">Craft Beer &amp; Wine</span><span class="t-dot">&#9670;</span>
+    <span class="t-item">Texas-Made Gifts</span><span class="t-dot">&#9670;</span>
+    <span class="t-item">Monomyth Roasters</span><span class="t-dot">&#9670;</span>
+    <span class="t-item">Deep Cuts Butcher Shop</span><span class="t-dot">&#9670;</span>
+    <span class="t-item">5471 Belt Line Rd &middot; Dallas TX</span><span class="t-dot">&#9670;</span>
+    <span class="t-item">Open 7 Days</span><span class="t-dot">&#9670;</span>
+    <span class="t-item">Specialty Coffee</span><span class="t-dot">&#9670;</span>
+    <span class="t-item">Breakfast Tacos</span><span class="t-dot">&#9670;</span>
+    <span class="t-item">Matcha Bar</span><span class="t-dot">&#9670;</span>
+    <span class="t-item">Craft Beer &amp; Wine</span><span class="t-dot">&#9670;</span>
+    <span class="t-item">Texas-Made Gifts</span><span class="t-dot">&#9670;</span>
+    <span class="t-item">Monomyth Roasters</span><span class="t-dot">&#9670;</span>
+    <span class="t-item">Deep Cuts Butcher Shop</span><span class="t-dot">&#9670;</span>
+    <span class="t-item">5471 Belt Line Rd &middot; Dallas TX</span><span class="t-dot">&#9670;</span>
+    <span class="t-item">Open 7 Days</span><span class="t-dot">&#9670;</span>
+  </div>
+</div>
+
+<div id="infobar">
+  <div class="info-cell reveal"><p class="info-label">Hours</p><p class="info-value">Mon&ndash;Sat 7am&ndash;5:30pm<br>Sunday 8am&ndash;4pm</p></div>
+  <div class="info-cell reveal"><p class="info-label">Location</p><p class="info-value">5471 Belt Line Rd<br>Dallas, TX 75254</p></div>
+  <div class="info-cell reveal"><p class="info-label">Coffee by</p><p class="info-value">Monomyth Coffee Roasters</p></div>
+</div>
+
+<section id="about">
+  <div class="about-photo">
+    <img src="fotos/DSC06369.webp" alt="Local Jonny's exterior" />
+  </div>
+  <div class="about-copy">
+    <span class="s-tag reveal">The Story</span>
+    <h2 class="s-title reveal">Not a chain.<br><em>Never will be.</em></h2>
+    <p class="reveal">Local Jonny's is a <strong>coffee bar and general store</strong> in North Dallas that actually gives a damn. Every cup starts with beans from Monomyth, roasted in Texas. Every taco comes from our partnership with Deep Cuts Butcher Shop.</p>
+    <p class="reveal">We carry gifts that are genuinely Texas-made. Come in, stay a while, grab a beer after 11. <strong>This is your local.</strong></p>
+    <div class="partners reveal">
+      <p class="partner">Coffee by Monomyth Coffee Roasters</p>
+      <p class="partner">Meat by Deep Cuts Butcher Shop</p>
+      <p class="partner">Gifts: Texas-made, always</p>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="menu-header">
+    <div>
+      <span class="s-tag reveal">What We Serve</span>
+      <h2 class="s-title reveal">The good<br><em>stuff.</em></h2>
+    </div>
+    <p class="reveal">Seasonal specials on the board daily. Gluten-free and dairy-free options &mdash; just ask your barista.</p>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-cat reveal">
+      <div class="cat-head">
+        <div class="cat-icon"><svg viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 010 8h-1"/><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg></div>
+        <div><div class="cat-title">Coffee</div><div class="cat-sub">Monomyth Coffee Roasters</div></div>
+      </div>
+      <ul class="menu-items">
+        <li class="menu-row"><div><span class="item-name">Espresso</span><span class="item-desc">Double shot, bright + clean</span></div><span class="item-price">$3.50</span></li>
+        <li class="menu-row"><div><span class="item-name">Cortado</span><span class="item-desc">Equal espresso + steamed milk</span></div><span class="item-price">$4.50</span></li>
+        <li class="menu-row"><div><span class="item-name">Latte</span><span class="item-desc">12oz &middot; oat or whole milk</span></div><span class="item-price">$5.50</span></li>
+        <li class="menu-row"><div><span class="item-name">Cold Brew</span><span class="item-desc">12-hour steep, smooth finish</span></div><span class="item-price">$5.00</span></li>
+        <li class="menu-row"><div><span class="item-name">Seasonal Special</span><span class="item-desc">Ask your barista</span></div><span class="item-price">mkt</span></li>
+      </ul>
+    </div>
+    <div class="menu-cat reveal">
+      <div class="cat-head">
+        <div class="cat-icon"><svg viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg></div>
+        <div><div class="cat-title">Breakfast Tacos</div><div class="cat-sub">Deep Cuts Butcher Shop</div></div>
+      </div>
+      <ul class="menu-items">
+        <li class="menu-row"><div><span class="item-name">Egg + Cheese</span><span class="item-desc">Scrambled, flour tortilla</span></div><span class="item-price">$4.00</span></li>
+        <li class="menu-row"><div><span class="item-name">Bacon + Egg</span><span class="item-desc">House-cured bacon</span></div><span class="item-price">$5.00</span></li>
+        <li class="menu-row"><div><span class="item-name">Chorizo + Potato</span><span class="item-desc">Spicy, always popular</span></div><span class="item-price">$5.00</span></li>
+        <li class="menu-row"><div><span class="item-name">Veggie</span><span class="item-desc">Black bean, peppers, egg</span></div><span class="item-price">$4.50</span></li>
+        <li class="menu-row"><div><span class="item-name">Taco of the Day</span><span class="item-desc">Board changes daily</span></div><span class="item-price">mkt</span></li>
+      </ul>
+    </div>
+    <div class="menu-cat reveal">
+      <div class="cat-head">
+        <div class="cat-icon"><svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0118 13V7a7 7 0 00-7 7"/><path d="M11 20H5a7 7 0 017-7"/></svg></div>
+        <div><div class="cat-title">Matcha &amp; Tea</div><div class="cat-sub">Ceremonial Grade</div></div>
+      </div>
+      <ul class="menu-items">
+        <li class="menu-row"><div><span class="item-name">Matcha Latte</span><span class="item-desc">Ceremonial, oat or whole</span></div><span class="item-price">$6.00</span></li>
+        <li class="menu-row"><div><span class="item-name">Iced Matcha</span><span class="item-desc">Shaken, no sweetener</span></div><span class="item-price">$6.00</span></li>
+        <li class="menu-row"><div><span class="item-name">Seasonal Matcha</span><span class="item-desc">Banana, berry, pistachio&hellip;</span></div><span class="item-price">$6.50</span></li>
+        <li class="menu-row"><div><span class="item-name">Chai Latte</span><span class="item-desc">House spiced, not too sweet</span></div><span class="item-price">$5.50</span></li>
+        <li class="menu-row"><div><span class="item-name">Orange Espresso Tonic</span><span class="item-desc">Sparkling + espresso</span></div><span class="item-price">$5.00</span></li>
+      </ul>
+    </div>
+    <div class="menu-cat reveal">
+      <div class="cat-head">
+        <div class="cat-icon"><svg viewBox="0 0 24 24"><path d="M8 22h8"/><path d="M12 11v11"/><path d="M7 3H5l3 9a4 4 0 008 0l3-9h-2"/></svg></div>
+        <div><div class="cat-title">Beer + Wine</div><div class="cat-sub">Texas Craft Selection</div></div>
+      </div>
+      <ul class="menu-items">
+        <li class="menu-row"><div><span class="item-name">Draft Beer</span><span class="item-desc">Rotating Texas taps</span></div><span class="item-price">$7</span></li>
+        <li class="menu-row"><div><span class="item-name">Canned Beer</span><span class="item-desc">Curated local selection</span></div><span class="item-price">$5&ndash;7</span></li>
+        <li class="menu-row"><div><span class="item-name">Red Wine</span><span class="item-desc">Glass or bottle</span></div><span class="item-price">$9</span></li>
+        <li class="menu-row"><div><span class="item-name">White Wine</span><span class="item-desc">Light and dry</span></div><span class="item-price">$9</span></li>
+        <li class="menu-row"><div><span class="item-name">Cider</span><span class="item-desc">Seasonal</span></div><span class="item-price">$6</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="matcha">
+  <div class="matcha-photo">
+    <img src="fotos/DSC06494.webp" alt="Matcha" style="object-position: center center;" />
+  </div>
+  <div class="matcha-copy">
+    <span class="s-tag reveal">The Ritual</span>
+    <h2 class="s-title reveal">Matcha<br>done <em>right.</em></h2>
+    <p class="reveal">Ceremonial grade, prepared properly. Oat milk or whole &mdash; smooth, grassy, no bitterness. The real stuff, not a powder mix. Seasonal flavors on the board every week.</p>
+    <a class="btn-white reveal" href="#menu">Order Matcha &#8594;</a>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="reviews-header">
+    <span class="s-tag">What People Say</span>
+    <h2 class="s-title">The locals<br><em>love it.</em></h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Best coffee in North Dallas, hands down. The matcha is incredible and the breakfast tacos are the real deal. This place has become my daily stop."</p>
+      <div class="review-author">
+        <div class="review-avatar">S</div>
+        <div>
+          <p class="review-name">Sarah M.</p>
+          <p class="review-source">Google Review</p>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Finally a coffee shop in Dallas that actually cares about quality. The vibe is perfect, the staff is amazing and the gifts section is a hidden gem."</p>
+      <div class="review-author">
+        <div class="review-avatar">J</div>
+        <div>
+          <p class="review-name">James R.</p>
+          <p class="review-source">Google Review</p>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Love this place so much. The chorizo taco with a cortado is the perfect combo. Everything is local, fresh and made with love. 10/10."</p>
+      <div class="review-author">
+        <div class="review-avatar">A</div>
+        <div>
+          <p class="review-name">Amanda K.</p>
+          <p class="review-source">Google Review</p>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"The seasonal matcha drinks are next level. I've tried every coffee shop in the area and Local Jonny's is just different. It feels like a real neighborhood spot."</p>
+      <div class="review-author">
+        <div class="review-avatar">M</div>
+        <div>
+          <p class="review-name">Mike T.</p>
+          <p class="review-source">Google Review</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gifts">
+  <div class="gifts-header">
+    <div>
+      <span class="s-tag reveal">Take Texas Home</span>
+      <h2 class="s-title reveal">Gifts that<br><em>mean something.</em></h2>
+    </div>
+    <p class="reveal">Every item we carry is made in Texas by people we trust. Coffee, candles, ceramics, apparel. No fluff, nothing generic.</p>
+  </div>
+  <div class="gifts-grid">
+    <div class="gift-card reveal"><p class="gift-num">01</p><h3 class="gift-name">Coffee Bags</h3><p class="gift-desc">Monomyth whole bean. Single origin and blends. For the home brewer who won't settle.</p></div>
+    <div class="gift-card reveal"><p class="gift-num">02</p><h3 class="gift-name">Matcha Tins</h3><p class="gift-desc">Ceremonial grade. Bright, smooth, nothing added. The exact same thing we use daily.</p></div>
+    <div class="gift-card reveal"><p class="gift-num">03</p><h3 class="gift-name">Local Candles</h3><p class="gift-desc">Small-batch, hand-poured in Texas. Scents that actually smell like something.</p></div>
+    <div class="gift-card reveal"><p class="gift-num">04</p><h3 class="gift-name">Branded Mugs</h3><p class="gift-desc">Drink well every morning. The cup matters more than people think.</p></div>
+    <div class="gift-card reveal"><p class="gift-num">05</p><h3 class="gift-name">Totes + Hats</h3><p class="gift-desc">Wear your local. Clean, minimal, not obnoxious about it.</p></div>
+    <div class="gift-card reveal"><p class="gift-num">06</p><h3 class="gift-name">Seasonal Items</h3><p class="gift-desc">Always something rotating. Ask in-store what just came in.</p></div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="gallery-header">
+    <span class="s-tag">The Space</span>
+    <h2 class="s-title">A look<br><em>inside.</em></h2>
+  </div>
+  <div class="bento-grid">
+    <div class="bento-cell span-2" onclick="openModal('fotos/DSC06341.webp')"><img src="fotos/DSC06341.webp" loading="lazy"/><span class="strip-label">Inside the Store</span></div>
+    <div class="bento-cell" onclick="openModal('fotos/DSC06345.webp')"><img src="fotos/DSC06345.webp" loading="lazy"/><span class="strip-label">Local Vibes</span></div>
+    <div class="bento-cell" onclick="openModal('fotos/DSC06350.webp')"><img src="fotos/DSC06350.webp" loading="lazy"/><span class="strip-label">The Space</span></div>
+    <div class="bento-cell" onclick="openModal('fotos/DSC06374.webp')"><img src="fotos/DSC06374.webp" loading="lazy"/><span class="strip-label">Local Jonny's</span></div>
+    <div class="bento-cell span-2" onclick="openModal('fotos/DSC06478.webp')"><img src="fotos/DSC06478.webp" loading="lazy"/><span class="strip-label">Monomyth Coffee</span></div>
+    <div class="bento-cell" onclick="openModal('fotos/DSC06487.webp')"><img src="fotos/DSC06487.webp" loading="lazy"/><span class="strip-label">Fresh Daily</span></div>
+    <div class="bento-cell" onclick="openModal('fotos/DSC06494.webp')"><img src="fotos/DSC06494.webp" loading="lazy"/><span class="strip-label">Matcha Bar</span></div>
+    <div class="bento-cell span-2" onclick="openModal('fotos/DSC06526.webp')"><img src="fotos/DSC06526.webp" loading="lazy"/><span class="strip-label">Ceremonial Matcha</span></div>
+    <div class="bento-cell" onclick="openModal('fotos/DSC06647.webp')"><img src="fotos/DSC06647.webp" loading="lazy"/><span class="strip-label">Cold Brew</span></div>
+    <div class="bento-cell" onclick="openModal('fotos/DSC06656.webp')"><img src="fotos/DSC06656.webp" loading="lazy"/><span class="strip-label">Morning Ritual</span></div>
+    <div class="bento-cell span-2" onclick="openModal('fotos/DSC06773.webp')"><img src="fotos/DSC06773.webp" loading="lazy"/><span class="strip-label">Breakfast Tacos</span></div>
+    <div class="bento-cell" onclick="openModal('fotos/DSC06785.webp')"><img src="fotos/DSC06785.webp" loading="lazy"/><span class="strip-label">Taco of the Day</span></div>
+    <div class="bento-cell" onclick="openModal('fotos/DSC06865.webp')"><img src="fotos/DSC06865.webp" loading="lazy"/><span class="strip-label">Good Things</span></div>
+  </div>
+  <div id="gallery-modal" onclick="closeModal()">
+    <div class="modal-inner">
+      <img id="modal-img" src="" alt="" />
+      <button class="modal-close" onclick="closeModal()">&#10005;</button>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="visit-map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.123!2d-96.8205!3d32.9535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c2b3b5e5e5e5f%3A0x1234567890abcdef!2s5471+Belt+Line+Rd%2C+Dallas%2C+TX+75254!5e0!3m2!1sen!2sus!4v1700000000000" allowfullscreen loading="lazy" title="Location"></iframe>
+  </div>
+  <div class="visit-copy">
+    <span class="s-tag">Come By</span>
+    <h2 class="s-title">Visit<br>our house.</h2>
+    <div class="visit-details">
+      <div><p class="vd-label">Address</p><p class="vd-val">5471 Belt Line Rd<br>Dallas, TX 75254</p></div>
+      <div><p class="vd-label">Hours</p><p class="vd-val">Mon&ndash;Sat &middot; 7am &ndash; 5:30pm<br>Sunday &middot; 8am &ndash; 4pm</p></div>
+      <div><p class="vd-label">Order Ahead</p><p class="vd-val"><a href="https://order.toasttab.com" target="_blank">order.toasttab.com &#8599;</a></p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <p class="f-logo">Local <span>Jonny's</span></p>
+    <p class="f-sub">Coffee bar and general store.<br>North Dallas. No chains, no shortcuts.</p>
+  </div>
+  <div class="f-col">
+    <p class="f-col-title">Navigate</p>
+    <ul>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#gifts">Shop</a></li>
+      <li><a href="#visit">Visit</a></li>
+      <li><a href="https://order.toasttab.com" target="_blank">Order Online</a></li>
+    </ul>
+  </div>
+  <div class="f-col">
+    <p class="f-col-title">Connect</p>
+    <ul>
+      <li><a href="https://instagram.com/localjonnystx" target="_blank">@localjonnystx</a></li>
+      <li><a href="mailto:localjonnyttx@gmail.com">localjonnyttx@gmail.com</a></li>
+      <li style="margin-top:.5rem;color:rgba(255,255,255,.2)">5471 Belt Line Rd</li>
+      <li style="color:rgba(255,255,255,.2)">Dallas, TX 75254</li>
+    </ul>
+  </div>
+  <div class="f-bottom">
+    <p>&copy; 2025 Local Jonny's General Store &middot; Dallas, Texas</p>
+    <a class="f-insta" href="https://instagram.com/localjonnystx" target="_blank">Instagram &#8599;</a>
+  </div>
+</footer>
+
+<script>
+// ── NAV STICKY ──
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('solid', window.scrollY > 80));
+
+  // Scroll reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const siblings = [...e.target.parentElement.querySelectorAll('.reveal:not(.in)')];
+      const i = siblings.indexOf(e.target);
+      setTimeout(() => e.target.classList.add('in'), i * 90);
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Rotating words
+  const words = document.querySelectorAll('.hero-rotating-word');
+  let current = 0;
+  setInterval(() => {
+    words[current].classList.remove('active');
+    words[current].classList.add('exit');
+    setTimeout(() => {
+      const prev = current === 0 ? words.length - 1 : current - 1;
+      words[prev].classList.remove('exit');
+    }, 500);
+    current = (current + 1) % words.length;
+    words[current].classList.add('active');
+  }, 2200);
+
+  // Carrusel infinito
+  const track = document.getElementById('strip-track');
+  if (track) {
+    const original = track.innerHTML;
+    track.innerHTML = original + original + original;
+
+    track.style.display = 'flex';
+    track.style.willChange = 'transform';
+    track.style.backfaceVisibility = 'hidden';
+    track.style.webkitBackfaceVisibility = 'hidden';
+
+    let pos = 0;
+    let dragging = false;
+    let startX = 0;
+    let startPos = 0;
+    let paused = false;
+    let momentum = 0;
+    let lastX = 0;
+    let lastTime = 0;
+    const AUTO_SPEED = 1.8;
+
+    const getLimit = () => track.scrollWidth / 3;
+
+    let raf;
+    function loop() {
+      if (!dragging) {
+        if (!paused) pos += AUTO_SPEED;
+        if (Math.abs(momentum) > 0.5) {
+          pos += momentum;
+          momentum *= 0.95;
+        } else {
+          momentum = 0;
+        }
+      }
+      if (pos >= getLimit()) pos -= getLimit();
+      if (pos < 0) pos += getLimit();
+      track.style.transform = `translate3d(-${pos}px, 0, 0)`;
+      raf = requestAnimationFrame(loop);
+    }
+    raf = requestAnimationFrame(loop);
+
+    // Mouse
+    track.addEventListener('mousedown', e => {
+      dragging = true;
+      paused = true;
+      startX = e.clientX;
+      startPos = pos;
+      lastX = e.clientX;
+      lastTime = Date.now();
+      momentum = 0;
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(loop);
+    });
+    window.addEventListener('mousemove', e => {
+      if (!dragging) return;
+      const now = Date.now();
+      const dt = now - lastTime || 1;
+      momentum = (lastX - e.clientX) / dt * 16;
+      lastX = e.clientX;
+      lastTime = now;
+      pos = startPos + (startX - e.clientX);
+      if (pos >= getLimit()) pos -= getLimit();
+      if (pos < 0) pos += getLimit();
+    });
+    window.addEventListener('mouseup', () => {
+      if (!dragging) return;
+      dragging = false;
+      setTimeout(() => { paused = false; momentum = 0; }, 2000);
+    });
+
+    // Touch
+    track.addEventListener('touchstart', e => {
+      paused = true;
+      startX = e.touches[0].clientX;
+      startPos = pos;
+      lastX = e.touches[0].clientX;
+      lastTime = Date.now();
+      momentum = 0;
+    }, { passive: true });
+    track.addEventListener('touchmove', e => {
+      const now = Date.now();
+      const dt = now - lastTime || 1;
+      momentum = (lastX - e.touches[0].clientX) / dt * 14;
+      lastX = e.touches[0].clientX;
+      lastTime = now;
+      pos = startPos + (startX - e.touches[0].clientX);
+      if (pos >= getLimit()) pos -= getLimit();
+      if (pos < 0) pos += getLimit();
+    }, { passive: true });
+    track.addEventListener('touchend', () => {
+      setTimeout(() => { paused = false; momentum = 0; }, 2000);
+    });
+  }
+
+  function openModal(src) {
+    document.getElementById('modal-img').src = src;
+    document.getElementById('gallery-modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('gallery-modal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
+
+// ── NAV MENU ──
+function toggleMenu() {
+  document.getElementById('nav-burger').classList.toggle('open');
+  document.getElementById('nav-links').classList.toggle('open');
+  document.getElementById('nav-overlay').classList.toggle('open');
+  const isOpen = document.getElementById('nav-links').classList.contains('open');
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+}
+function closeMenu() {
+  document.getElementById('nav-burger').classList.remove('open');
+  document.getElementById('nav-links').classList.remove('open');
+  document.getElementById('nav-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+</script>
+</body>
+</html>
