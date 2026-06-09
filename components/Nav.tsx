@@ -16,7 +16,7 @@ export default function Nav() {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-[200] flex justify-between items-center px-14 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md py-3 border-b border-black/5 shadow-sm' : 'py-6 bg-transparent'}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-[200] flex justify-between items-center px-14 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md py-3' : 'py-6 bg-transparent'}`}>
         <a href="#">
           <Image
             src="/logo/logo.png"
