@@ -107,19 +107,19 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
 }
 
 const photos: MediaItemType[] = [
-  { id: 1, type: 'image', title: 'Inside the Store', desc: 'Local Jonny\'s General Store', url: '/fotos/DSC06341.webp', span: 'col-span-2 row-span-3' },
-  { id: 2, type: 'image', title: 'Local Vibes', desc: 'North Dallas neighborhood', url: '/fotos/DSC06345.webp', span: 'col-span-1 row-span-2' },
-  { id: 3, type: 'image', title: 'The Space', desc: 'Our cozy corner', url: '/fotos/DSC06350.webp', span: 'col-span-1 row-span-2' },
-  { id: 4, type: 'image', title: 'Local Jonny\'s', desc: 'Howdy, Dallas', url: '/fotos/DSC06374.webp', span: 'col-span-1 row-span-2' },
-  { id: 5, type: 'image', title: 'Monomyth Coffee', desc: 'Specialty coffee roasters', url: '/fotos/DSC06478.webp', span: 'col-span-2 row-span-3' },
-  { id: 6, type: 'image', title: 'Fresh Daily', desc: 'Made every morning', url: '/fotos/DSC06487.webp', span: 'col-span-1 row-span-2' },
-  { id: 7, type: 'image', title: 'Matcha Bar', desc: 'Ceremonial grade matcha', url: '/fotos/DSC06494.webp', span: 'col-span-1 row-span-2' },
-  { id: 8, type: 'image', title: 'Ceremonial Matcha', desc: 'The real stuff', url: '/fotos/DSC06526.webp', span: 'col-span-2 row-span-2' },
-  { id: 9, type: 'image', title: 'Cold Brew', desc: '12-hour steep', url: '/fotos/DSC06647.webp', span: 'col-span-1 row-span-2' },
-  { id: 10, type: 'image', title: 'Morning Ritual', desc: 'Start your day right', url: '/fotos/DSC06656.webp', span: 'col-span-1 row-span-2' },
-  { id: 11, type: 'image', title: 'Breakfast Tacos', desc: 'Deep Cuts Butcher Shop', url: '/fotos/DSC06773.webp', span: 'col-span-2 row-span-2' },
-  { id: 12, type: 'image', title: 'Taco of the Day', desc: 'Board changes daily', url: '/fotos/DSC06785.webp', span: 'col-span-1 row-span-2' },
-  { id: 13, type: 'image', title: 'Good Things', desc: 'Texas-made gifts', url: '/fotos/DSC06865.webp', span: 'col-span-1 row-span-2' },
+  { id: 1, type: 'image', title: 'Inside the Store', desc: 'Local Jonny\'s General Store', url: '/fotos/DSC06341.webp', span: '2 / span 2 / auto / span 3' },
+  { id: 2, type: 'image', title: 'Local Vibes', desc: 'North Dallas neighborhood', url: '/fotos/DSC06345.webp', span: 'auto / span 1 / auto / span 2' },
+  { id: 3, type: 'image', title: 'The Space', desc: 'Our cozy corner', url: '/fotos/DSC06350.webp', span: 'auto / span 1 / auto / span 2' },
+  { id: 4, type: 'image', title: 'Local Jonny\'s', desc: 'Howdy, Dallas', url: '/fotos/DSC06374.webp', span: 'auto / span 1 / auto / span 2' },
+  { id: 5, type: 'image', title: 'Monomyth Coffee', desc: 'Specialty coffee roasters', url: '/fotos/DSC06478.webp', span: 'auto / span 2 / auto / span 3' },
+  { id: 6, type: 'image', title: 'Fresh Daily', desc: 'Made every morning', url: '/fotos/DSC06487.webp', span: 'auto / span 1 / auto / span 2' },
+  { id: 7, type: 'image', title: 'Matcha Bar', desc: 'Ceremonial grade matcha', url: '/fotos/DSC06494.webp', span: 'auto / span 1 / auto / span 2' },
+  { id: 8, type: 'image', title: 'Ceremonial Matcha', desc: 'The real stuff', url: '/fotos/DSC06526.webp', span: 'auto / span 2 / auto / span 2' },
+  { id: 9, type: 'image', title: 'Cold Brew', desc: '12-hour steep', url: '/fotos/DSC06647.webp', span: 'auto / span 1 / auto / span 2' },
+  { id: 10, type: 'image', title: 'Morning Ritual', desc: 'Start your day right', url: '/fotos/DSC06656.webp', span: 'auto / span 1 / auto / span 2' },
+  { id: 11, type: 'image', title: 'Breakfast Tacos', desc: 'Deep Cuts Butcher Shop', url: '/fotos/DSC06773.webp', span: 'auto / span 2 / auto / span 2' },
+  { id: 12, type: 'image', title: 'Taco of the Day', desc: 'Board changes daily', url: '/fotos/DSC06785.webp', span: 'auto / span 1 / auto / span 2' },
+  { id: 13, type: 'image', title: 'Good Things', desc: 'Texas-made gifts', url: '/fotos/DSC06865.webp', span: 'auto / span 1 / auto / span 2' },
 ]
 
 export default function Gallery() {
@@ -164,7 +164,8 @@ export default function Gallery() {
         {items.map((item, index) => (
           <motion.div
             key={item.id}
-            className={`relative overflow-hidden rounded-lg cursor-pointer ${item.span}`}
+            className="relative overflow-hidden rounded-lg cursor-pointer"
+            style={{ gridArea: item.span }}
             onClick={() => !isDragging && setSelectedItem(item)}
             variants={{
               hidden: { y: 30, opacity: 0 },
