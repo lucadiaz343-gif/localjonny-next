@@ -57,11 +57,43 @@ export default function Hero() {
           Specialty coffee. Breakfast tacos. Good things, Texas-made.
         </p>
 
-        <div className="flex gap-5 mt-14 justify-center flex-wrap">
-          <a href="#menu" className="text-[0.75rem] font-bold tracking-[0.12em] uppercase text-white bg-[#FF1616] px-10 py-4 rounded-full hover:bg-red-700 transition-all hover:-translate-y-1 shadow-xl">
+        <div style={{ display: 'flex', gap: '1.2rem', marginTop: '3.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <a
+            href="#menu"
+            style={{
+              fontSize: '0.75rem',
+              fontWeight: 700,
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              color: '#fff',
+              background: '#FF1616',
+              padding: '1rem 2.5rem',
+              borderRadius: '999px',
+              textDecoration: 'none',
+              display: 'inline-block',
+              transition: 'all 0.2s',
+              boxShadow: '0 8px 24px rgba(255,22,22,0.3)',
+            }}
+          >
             See the Menu →
           </a>
-          <a href="#visit" className="text-[0.75rem] font-bold tracking-[0.12em] uppercase text-white border-2 border-white/50 px-10 py-4 rounded-full hover:border-white hover:bg-white/10 transition-all hover:-translate-y-1">
+          <a
+            href="#visit"
+            style={{
+              fontSize: '0.75rem',
+              fontWeight: 700,
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              color: '#fff',
+              background: 'transparent',
+              padding: '1rem 2.5rem',
+              borderRadius: '999px',
+              border: '2px solid rgba(255,255,255,0.5)',
+              textDecoration: 'none',
+              display: 'inline-block',
+              transition: 'all 0.2s',
+            }}
+          >
             Find Us
           </a>
         </div>
